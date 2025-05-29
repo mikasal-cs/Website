@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Top-Up</title>
+  <style>
+    body {
+          background-image:url('https://seagm-media.seagmcdn.com/game_480/3020.jpg?x-oss-process=image/resize,w_360.jpg');
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: #444;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .note {
+      background-color: #555;
+      padding: 10px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 200px;
+      border: none;
+      outline: none;
+    }
+    .validate-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="note">
+      Important Note: please enter valid UID and Server, and please check your diamonds before payment
+    </div>
+    <div class="form-group">
+      <label for="user-id">User ID</label>
+      <input type="text" id="user-id" placeholder="Please enter User ID" />
+    </div>
+    <div class="form-group">
+      <label for="server-id">Server ID</label>
+      <input type="text" id="server-id" placeholder="Enter server ID" />
+    </div>
+    <div class="form-group">
+      <label for="diamondsprice">Diamonds</label>
+      <select id="diamondsprice" name="diamonds">
+        <option value="rs50">350 diamonds (₹50)</option>
+        <option value="rs100">720 diamonds (₹100)</option>
+        <option value="rs200">1450 diamonds (₹200)</option>
+      </select>
+    </div>
+
+    <button class="validate-btn">Enter</button>
+  </div>
+</body>
+</html>
