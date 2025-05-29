@@ -1,14 +1,19 @@
 /* Global Styles */
 body {
   margin: 0;
-  height: 100vh; /* Make body take full viewport height */
+  padding: 0;
+  min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  background-image: url('https://cdn.oneesports.id/cdn-data/sites/2/2025/04/MLBB_Naruto_2025-1536x863.jpg');
-  background-size: cover;         /* 🔥 This ensures it covers fully */
-  background-position: center;    /* Center the image */
-  background-repeat: no-repeat;   /* No tiling */
-  background-attachment: fixed;   /* Optional: stays in place on scroll */
+
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSegNbz7APYZla3uRbPWKP42VNYVE7MPgfLzU2YGfftfZnew1vwrPxsASVb&s=10');
+  background-size: cover;           /* Scale to cover entire screen */
+  background-position: center center; /* Center it horizontally and vertically */
+  background-repeat: no-repeat;     /* Prevent repeat */
+  background-attachment: fixed;     /* Optional: stays in place when scrolling */
+
+  display: flex;                    /* Optional: for centering content */
+  justify-content: center;
+  align-items: center;
 
   color: #f0f0f0;
 }
