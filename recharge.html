@@ -6,69 +6,148 @@
   <title>Game Top-Up</title>
   <style>
     body {
-          background-image:url('https://seagm-media.seagmcdn.com/game_480/3020.jpg?x-oss-process=image/resize,w_360.jpg');
-      font-family: Arial, sans-serif;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
+      font-family: sans-serif;
+      background-color: #1e1e1e;
+      color: #d1d1d1;
+      margin: 0;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .container {
-      background-color: #444;
+    .important-note, .order-info, .description-section, .total-section {
+      background-color: #2c2c2c;
       padding: 20px;
       border-radius: 10px;
-      display: inline-block;
-    }
-    .note {
-      background-color: #555;
-      padding: 10px;
-      border-radius: 50px;
+      width: 90%;
+      max-width: 500px;
       margin-bottom: 20px;
+    }
+    .important-note {
+      background-color: #3a3a3a;
+      color: #f0ad4e;
+      text-align: center;
     }
     .form-group {
       margin-bottom: 15px;
     }
-    .form-group input,
-    .form-group select {
-      width: 100%;
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #a9a9a9;
+      text-align: left;
+    }
+    .form-group input[type="text"] {
+      width: calc(100% - 22px);
       padding: 10px;
-      border-radius: 200px;
-      border: none;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background-color: #333;
+      color: #d1d1d1;
+      box-sizing: border-box;
       outline: none;
     }
-    .validate-btn {
-      background-color: #007bff;
+    .total-amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .total-amount span {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .discount-stars {
+      color: #a9a9a9;
+      margin-top: 10px;
+    }
+    .buy-now-button {
+      background-color: #00c3ff;
       color: #fff;
-      padding: 10px 20px;
+      padding: 15px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 1.1em;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+    .buy-now-button:hover {
+      background-color: #00a7db;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #333;
+      color: #d1d1d1;
+      border: 1px solid #555;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="note">
-      Important Note: please enter valid UID and Server, and please check your diamonds before payment
-    </div>
+
+  <div class="important-note">
+    Important Note: This Top Up service is not applicable to Saudi Arabia, Myanmar and Indonesia users.
+  </div>
+
+  <div class="order-info">
     <div class="form-group">
       <label for="user-id">User ID</label>
       <input type="text" id="user-id" placeholder="Please enter User ID" />
     </div>
     <div class="form-group">
-      <label for="server-id">Server ID</label>
-      <input type="text" id="server-id" placeholder="Enter server ID" />
+      <label for="zone-id">Zone ID</label>
+      <input type="text" id="zone-id" placeholder="Please enter Zone ID" />
     </div>
     <div class="form-group">
-      <label for="diamondsprice">Diamonds</label>
+      <label for="diamondsprice">Selected Package</label>
       <select id="diamondsprice" name="diamonds">
-        <option value="rs50">350 diamonds (₹50)</option>
-        <option value="rs100">720 diamonds (₹100)</option>
-        <option value="rs200">1450 diamonds (₹200)</option>
+        <option disabled selected>Here the selected diamond will appear</option>
       </select>
     </div>
-
-    <button class="validate-btn">Enter</button>
   </div>
+
+  <div class="total-section">
+    <div class="total-amount">
+      <span>Total</span>
+      <span id="total-price">₹ --</span>
+    </div>
+    <div class="discount-stars" id="discount-details">
+      Discount <span style="color: #66bb6a;">₹ -- (16.0%)</span>
+    </div>
+  </div>
+
+  <button class="buy-now-button">BUY NOW</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const selectedPackage = params.get("package");
+
+    if (selectedPackage) {
+      const select = document.getElementById("diamondsprice");
+      const option = document.createElement("option");
+      option.text = selectedPackage;
+      option.value = "custom";
+      option.selected = true;
+      select.insertBefore(option, select.firstChild);
+
+      // Parse price from "86 Diamonds (₹93.19)"
+      const match = selectedPackage.match(/^(.*?)\s+₹([\d.]+)$/);
+      if (match) {
+        const name = match[1];
+        const price = parseFloat(match[2]);
+
+        const discount = (price * 0.16).toFixed(2);
+        const finalPrice = (price - discount).toFixed(2);
+
+        document.getElementById("total-price").textContent = `₹ ${finalPrice}`;
+        document.getElementById("discount-details").innerHTML =
+          `Discount <span style="color: #66bb6a;">₹ ${discount} (16.0%)</span>`;
+      }
+    }
+  </script>
+
 </body>
 </html>
