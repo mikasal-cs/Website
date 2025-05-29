@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diamond Pricing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      background-color: #1e1e1e;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      border: 2px solid #3a3a3a;
+      transition: transform 0.2s;
+    }
+
+    .step:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+
+    .step h3 {
+      margin: 10px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .diamond-img {
+      width: 60px;
+      height: auto;
+      margin: 10px auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(to right, #f857a6, #ff5858);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Diamond Pricing</h1>
+    <div class="steps">
+      <div class="step">
+        <h3>100 Diamonds (50+50)</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji2kVslpbsL_qRN4JU5apxlgytUeV_tfFGw&s.png" alt="Diamonds" class="diamond-img"/>
+        <h3>₹47.45</h3>
+        <a href="recharge.html" class="btn">Buy Now</a>
+      </div>
+
+      <div class="step">
+        <h3>86 Diamonds</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji2kVslpbsL_qRN4JU5apxlgytUeV_tfFGw&s.png" alt="Diamonds" class="diamond-img"/>
+        <h3>₹79</h3>
+        <a href="recharge.html" class="btn">Buy Now</a>
+      </div>
+
+      <div class="step">
+        <h3>172 Diamonds</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji2kVslpbsL_qRN4JU5apxlgytUeV_tfFGw&s.png" alt="Diamonds" class="diamond-img"/>
+        <h3>₹149</h3>
+        <a href="recharge.html" class="btn">Buy Now</a>
+      </div>
+
+      <div class="step">
+        <h3>344 Diamonds</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji2kVslpbsL_qRN4JU5apxlgytUeV_tfFGw&s.png" alt="Diamonds" class="diamond-img"/>
+        <h3>₹279</h3>
+        <a href="recharge.html" class="btn">Buy Now</a>
+      </div>
+
+      <div class="step">
+        <h3>514 Diamonds</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji2kVslpbsL_qRN4JU5apxlgytUeV_tfFGw&s.png" alt="Diamonds" class="diamond-img"/>
+        <h3>₹399</h3>
+        <a href="recharge.html" class="btn">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
